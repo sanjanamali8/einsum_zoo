@@ -51,10 +51,15 @@ Steps -
 
 Tensors -
 
-$$&\triangleright \text{Tensors} \\$$
-$$G^{S\equiv|V|,D\equiv|V|} \rightarrow \text{Boolean},\ \text{empty}=false\\$$
-$$F^{I,S\equiv|V|} \rightarrow \text{Boolean},\ \text{empty}=false\\$$
-$$Tree^{I,S\equiv|V|,D\equiv|V|} \rightarrow \text{Boolean},\ \text{empty}=false$$
+$$
+\begin{array}{l}
+\triangleright \text{Tensors} \\
+G^{S\equiv|V|,D\equiv|V|} \rightarrow \text{Boolean},\ \text{empty}=false\\
+F^{I,S\equiv|V|} \rightarrow \text{Boolean},\ \text{empty}=false\\
+Tree^{I,S\equiv|V|,D\equiv|V|} \rightarrow \text{Boolean},\ \text{empty}=false
+\end{array}
+$$
+
 
 
 1. Create a 2D tensor G with ranks S and D, where S represents the source and D represents destination. The initial values are either false if s is not connected to d by an edge and true if s is connected to d by an edge.
