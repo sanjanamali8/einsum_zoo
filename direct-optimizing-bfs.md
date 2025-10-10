@@ -105,12 +105,14 @@ $$
 ## Algorithm (Step-by-Step-EDGE) -
 
 $$
+\begin{array}{l}
 →Tensors \\
 G^{S,D} → \text{boolean}, \text{empty}=false\\
 F^{I, S} → \text{boolean}, \text{empty}=false\\
 Tree^{I, S, D} →\text{boolean}, \text{empty}=false \\
 NNP^{I, D, S} →\text{boolean}, \text{empty}=false \\
 InF^{I, D, S} →\text{boolean}, \text{empty}=false \\
+\end{array}
 $$
 
 
@@ -152,6 +154,7 @@ Use the populate operator with a defined coordinate operator pick-parent to enfo
 
 
 $$
+\begin{array}{l}
 &\triangleright \text{Tensors} \\
 G^{S≡|V|,D≡|V|} &→ \text{Boolean}, \text{empty}=false\\
 F^{I, S≡|V|} &→\text{Boolean}, \text{empty}=false\\
@@ -173,6 +176,7 @@ TTree_{i,s,d} &= (G_{s,d} ⋅ F_{i,s})_{i,s,d} ⋅ NP_{i,d} :: \bigwedge AND (�
 Temp_{i, s*, d} &= TTree_{i,s,d} \lll_{s*} \mathbb{1}(\text{pick-parent})\\
 Tree_{i+1,s,d} &= Tree_{i,s,d} ⋅ Temp_{i,s,d} :: ⋀ OR(∪) \\
 ◇ : ||F_{i+1}|| &≡ false
+\end{array}
 $$
 
 
@@ -180,6 +184,7 @@ $$
 
 
 $$
+\begin{array}{l}
 \triangleright \text{Tensors} \\
 G^{S≡|V|,D≡|V|} → \text{Boolean}, \text{empty}=false\\
 F^{I, S≡|V|} →\text{Boolean}, \text{empty}=false\\
@@ -205,6 +210,7 @@ Temp_{i, d, s*} = InF_{i,d,s} \lll_{s*} \mathbb{1}(\text{pick-parent})\\
 Tree_{i+1,d,s} = Temp_{i,d,s} ⋅ Tree_{i,d,s} :: ⋀ OR(∪)\\
 F_{i+1, d} = InF_{i,d,s} :: \bigvee OR(∪)\\
 ◇ : ||F_{i+1} || ≡ false\\
+\end{array}
 $$
 
 
