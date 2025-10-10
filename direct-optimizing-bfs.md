@@ -81,7 +81,7 @@ $$
 8. Add the neighbors without parents (unvisited nodes) to the new frontier.
     - $F_{i+1, d} = NP_{i, d}$
 9. Update the Tree to mark visited neighbors. Create a temporary tree by intersecting the Graph (to confirm the parent–child edge), the Frontier (active vertices), and NP (newly discovered children).
-  - $TTree_{i,s,d} = (G_{s,d} ⋅ F_{i,s})_{i,s,d} ⋅ NP_{i,d} :: \bigwedge AND (∩) ⋀ AND(∩)$
+    - $TTree_{i,s,d} = (G_{s,d} ⋅ F_{i,s})_{i,s,d} ⋅ NP_{i,d} :: \bigwedge AND (∩) ⋀ AND(∩)$
 10. If multiple parents discover the same child, select only one as the parent. Use the populate operator with a defined coordinate operator pick-parent to enforce this. To achieve this, we use a 'populate' operator to populate another temporary tensor by applying a defined coordinate operator 'pick-parent'    
   - $Temp_{i, s*, d} = TTree_{i,s,d} \lll_{s*} \mathbb{1}(\text{pick-parent})$
   
@@ -186,30 +186,30 @@ $$
 $$
 \begin{array}{l}
 &\triangleright \text{Tensors} \\
-G^{S≡|V|,D≡|V|} → \text{Boolean}, \text{empty}=false\\
-F^{I, S≡|V|} →\text{Boolean}, \text{empty}=false\\
-Tree^{I, S≡|V|, D≡|V|} →\text{Boolean}, \text{empty}=false \\
-NNP^{I, D, S} →\text{boolean}, \text{empty}=false \\
-InF^{I, D, S} →\text{boolean}, \text{empty}=false \\
+G^{S≡|V|,D≡|V|} &→ \text{Boolean}, \text{empty}=false\\
+F^{I, S≡|V|} &→\text{Boolean}, \text{empty}=false\\
+Tree^{I, S≡|V|, D≡|V|} &→\text{Boolean}, \text{empty}=false \\
+NNP^{I, D, S} &→\text{boolean}, \text{empty}=false \\
+InF^{I, D, S} &→\text{boolean}, \text{empty}=false \\
 \\
 &\triangleright \text{Initializations} \\
-F_{i,s} = false \\
-Tree_{i,s,d} = false \\
-G_{s,d} → <user-specified> \\
-NNN_{i,d,s} = false\\
-InF_{i,d,s} = false\\
-F_{0, n} = true \\
-Tree_{0, n, n} = true \\
+F_{i,s} &= false \\
+Tree_{i,s,d} &= false \\
+G_{s,d} &→ <user-specified> \\
+NNN_{i,d,s} &= false\\
+InF_{i,d,s} &= false\\
+F_{0, n} &= true \\
+Tree_{0, n, n} &= true \\
 \\
 &\triangleright \text{Extended Einsums} \\
-HP_{i,c}= Tree_{𝑖,𝑝,𝑐}:: \bigvee OR(\cup) \\
-NP_{i, c} = ¬HP_{i, c} \\
-NNP_{i,d,s} = G_{s,d} ⋅ NP_{i,d} :: ⋀ AND\\
-InF_{i,d,s} = NNP_{i,d,s} ⋅ F_{i,s} :: ⋀ AND(∩)\\
-Temp_{i, d, s*} = InF_{i,d,s} \lll_{s*} \mathbb{1}(\text{pick-parent})\\
-Tree_{i+1,d,s} = Temp_{i,d,s} ⋅ Tree_{i,d,s} :: ⋀ OR(∪)\\
-F_{i+1, d} = InF_{i,d,s} :: \bigvee OR(∪)\\
-◇ : ||F_{i+1} || ≡ false\\
+HP_{i,c} &= Tree_{𝑖,𝑝,𝑐}:: \bigvee OR(\cup) \\
+NP_{i, c} &= ¬HP_{i, c} \\
+NNP_{i,d,s} &= G_{s,d} ⋅ NP_{i,d} :: ⋀ AND\\
+InF_{i,d,s} &= NNP_{i,d,s} ⋅ F_{i,s} :: ⋀ AND(∩)\\
+Temp_{i, d, s*} &= InF_{i,d,s} \lll_{s*} \mathbb{1}(\text{pick-parent})\\
+Tree_{i+1,d,s} &= Temp_{i,d,s} ⋅ Tree_{i,d,s} :: ⋀ OR(∪)\\
+F_{i+1, d} &= InF_{i,d,s} :: \bigvee OR(∪)\\
+◇ : ||F_{i+1}|| &≡ false\\
 \end{array}
 $$
 
