@@ -81,9 +81,9 @@ $$
 8. Add the neighbors without parents (unvisited nodes) to the new frontier.
     - $F_{i+1, d} = NP_{i, d}$
 9. Update the Tree to mark visited neighbors. Create a temporary tree by intersecting the Graph (to confirm the parent–child edge), the Frontier (active vertices), and NP (newly discovered children).
-    - $TTree_{i,s,d} = (G_{s,d} ⋅ F_{i,s})_{i,s,d} ⋅ NP_{i,d} :: \bigwedge AND (∩) ⋀ AND(∩)$
+    - $TTree_{i,s,d} = (G_{s,d} \cdot F_{i,s})_{i,s,d} \cdot NP_{i,d} :: \bigwedge AND(∩) ⋀ AND(∩)$
 10. If multiple parents discover the same child, select only one as the parent. Use the populate operator with a defined coordinate operator pick-parent to enforce this. To achieve this, we use a 'populate' operator to populate another temporary tensor by applying a defined coordinate operator 'pick-parent'    
-  - $Temp_{i, s*, d} = TTree_{i,s,d} \lll_{s*} \mathbb{1}(\text{pick-parent})$
+    - $Temp_{i, s*, d} = TTree_{i,s,d} \lll_{s*} \mathbb{1}(\text{pick-parent})$
   
 11. Merge the temporary tree with the existing Tree to preserve all previously visited nodes.
     - $Tree_{i+1,s,d} = Tree_{i,s,d} ⋅ TTree_{i,s,d} :: ⋀ OR$
