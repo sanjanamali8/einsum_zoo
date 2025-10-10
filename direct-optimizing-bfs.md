@@ -51,12 +51,12 @@ Steps -
 
 Tensors -
 
-\begin{align}
+$$
 &\triangleright \text{Tensors} \\
 G^{S≡|V|,D≡|V|} &→ \text{Boolean}, \text{empty}=false\\
 F^{I, S≡|V|} &→\text{Boolean}, \text{empty}=false\\
 Tree^{I, S≡|V|, D≡|V|} &→\text{Boolean}, \text{empty}=false \\
-\end{align}
+$$
 
 
 1. Create a 2D tensor G with ranks S and D, where S represents the source and D represents destination. The initial values are either false if s is not connected to d by an edge and true if s is connected to d by an edge.
@@ -101,14 +101,14 @@ Tree^{I, S≡|V|, D≡|V|} &→\text{Boolean}, \text{empty}=false \\
 
 ## Algorithm (Step-by-Step-EDGE) -
 
-\begin{align}
+$$
 →Tensors \\
 G^{S,D} → \text{boolean}, \text{empty}=false\\
 F^{I, S} → \text{boolean}, \text{empty}=false\\
 Tree^{I, S, D} →\text{boolean}, \text{empty}=false \\
 NNP^{I, D, S} →\text{boolean}, \text{empty}=false \\
 InF^{I, D, S} →\text{boolean}, \text{empty}=false \\
-\end{align}
+$$
 
 
 1. Create a 2D tensor G with ranks S and D, where S represents source and D represents destination. The initial values are either false if s is not connected to d by an edge and true if s is connected to d by an edge.
@@ -148,7 +148,7 @@ Use the populate operator with a defined coordinate operator pick-parent to enfo
 ## Top Down
 
 
-\begin{align}
+$$
 &\triangleright \text{Tensors} \\
 G^{S≡|V|,D≡|V|} &→ \text{Boolean}, \text{empty}=false\\
 F^{I, S≡|V|} &→\text{Boolean}, \text{empty}=false\\
@@ -170,13 +170,13 @@ TTree_{i,s,d} &= (G_{s,d} ⋅ F_{i,s})_{i,s,d} ⋅ NP_{i,d} :: \bigwedge AND (�
 Temp_{i, s*, d} &= TTree_{i,s,d} \lll_{s*} \mathbb{1}(\text{pick-parent})\\
 Tree_{i+1,s,d} &= Tree_{i,s,d} ⋅ Temp_{i,s,d} :: ⋀ OR(∪) \\
 ◇ : ||F_{i+1}|| &≡ false
-\end{align}
+$$
 
 
 ## Bottom UP
 
 
-\begin{align}
+$$
 \triangleright \text{Tensors} \\
 G^{S≡|V|,D≡|V|} → \text{Boolean}, \text{empty}=false\\
 F^{I, S≡|V|} →\text{Boolean}, \text{empty}=false\\
@@ -202,6 +202,6 @@ Temp_{i, d, s*} = InF_{i,d,s} \lll_{s*} \mathbb{1}(\text{pick-parent})\\
 Tree_{i+1,d,s} = Temp_{i,d,s} ⋅ Tree_{i,d,s} :: ⋀ OR(∪)\\
 F_{i+1, d} = InF_{i,d,s} :: \bigvee OR(∪)\\
 ◇ : ||F_{i+1} || ≡ false\\
-\end{align}
+$$
 
 
