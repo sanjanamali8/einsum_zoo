@@ -185,14 +185,14 @@ $$
 
 $$
 \begin{array}{l}
-\triangleright \text{Tensors} \\
+&\triangleright \text{Tensors} \\
 G^{S≡|V|,D≡|V|} → \text{Boolean}, \text{empty}=false\\
 F^{I, S≡|V|} →\text{Boolean}, \text{empty}=false\\
 Tree^{I, S≡|V|, D≡|V|} →\text{Boolean}, \text{empty}=false \\
 NNP^{I, D, S} →\text{boolean}, \text{empty}=false \\
 InF^{I, D, S} →\text{boolean}, \text{empty}=false \\
 \\
-\triangleright \text{Initializations} \\
+&\triangleright \text{Initializations} \\
 F_{i,s} = false \\
 Tree_{i,s,d} = false \\
 G_{s,d} → <user-specified> \\
@@ -201,7 +201,7 @@ InF_{i,d,s} = false\\
 F_{0, n} = true \\
 Tree_{0, n, n} = true \\
 \\
-\triangleright \text{Extended Einsums} \\
+&\triangleright \text{Extended Einsums} \\
 HP_{i,c}= Tree_{𝑖,𝑝,𝑐}:: \bigvee OR(\cup) \\
 NP_{i, c} = ¬HP_{i, c} \\
 NNP_{i,d,s} = G_{s,d} ⋅ NP_{i,d} :: ⋀ AND\\
